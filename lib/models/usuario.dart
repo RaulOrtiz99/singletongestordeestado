@@ -4,6 +4,5 @@ class Usuario {
   List<String> profesiones;
 
   //Constructor por defecto
-  Usuario(
-      {required this.nombre, required this.edad, required this.profesiones});
+  Usuario(this.nombre, this.edad, this.profesiones);
 }
