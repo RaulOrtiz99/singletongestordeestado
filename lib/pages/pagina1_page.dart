@@ -10,11 +10,11 @@ class Pagina1Page extends StatelessWidget {
       appBar: AppBar(title: Text("Pagina1")),
       body: usuarioService.existeUsuario
           ? InformacionUsuario()
-          : Center(
+          : const Center(
               child: Text("No hay informacion del usuario"),
             ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.accessibility_new),
+        child: const Icon(Icons.accessibility_new),
         onPressed: () {
           //todo: navegacion entre las 2 vistas
           Navigator.pushNamed(context, 'pagina2');
