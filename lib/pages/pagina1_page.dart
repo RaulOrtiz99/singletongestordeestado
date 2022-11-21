@@ -1,18 +1,19 @@
+import 'package:estados_s/models/usuario.dart';
 import 'package:estados_s/services/usuario_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Pagina1Page extends StatelessWidget {
   const Pagina1Page({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final usuarioService = Provider.of<UsuarioService>(context, listen: true);
     return Scaffold(
-      appBar: AppBar(title: Text("Pagina1")),
+      appBar: AppBar(title: const Text("Pagina1")),
       body: usuarioService.existeUsuario
-          ? InformacionUsuario()
-          : const Center(
-              child: Text("No hay informacion del usuario"),
-            ),
+          ? InformacionUsuario(usuarioService.usuario)
+          : const Center(child: Text("No existe el usuario seleccionado")),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.accessibility_new),
         onPressed: () {
@@ -25,7 +26,8 @@ class Pagina1Page extends StatelessWidget {
 }
 
 class InformacionUsuario extends StatelessWidget {
-
+  final Usuario usuario;
+  const InformacionUsuario(this.usuario);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,15 +35,15 @@ class InformacionUsuario extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.all(20.0),
       child: Column(
-        children: const [
+        children: [
           Text("General",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           Divider(),
           ListTile(
-            title: Text("Nombre:"),
+            title: Text('Nombre: ${usuario.nombre}  '),
           ),
           ListTile(
-            title: Text("Edad:"),
+            title: Text('Edad:${usuario.edad}'),
           ),
           Text(
             "Profesiones",
