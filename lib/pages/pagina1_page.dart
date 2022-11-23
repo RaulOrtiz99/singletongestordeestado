@@ -19,8 +19,6 @@ class Pagina1Page extends StatelessWidget {
           } else {
             return InformacionUsuario();
           }
-
-          return CircularProgressIndicator();
         },
       ),
       floatingActionButton: FloatingActionButton(

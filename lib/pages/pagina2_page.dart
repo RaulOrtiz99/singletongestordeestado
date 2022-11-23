@@ -1,4 +1,7 @@
+import 'package:estados_s/bloc/usuario/usuario_cubit.dart';
+import 'package:estados_s/models/usuario.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Pagina2Page extends StatelessWidget {
   const Pagina2Page({super.key});
@@ -16,7 +19,14 @@ class Pagina2Page extends StatelessWidget {
           children: [
             MaterialButton(
               color: Colors.blue,
-              onPressed: () {},
+              onPressed: () {
+                final newUser = Usuario(
+                    nombre: 'Raul',
+                    edad: 23,
+                    profesiones: ['Profesion1,profesion2']);
+                context.read<UsuarioCubit>().seleccionarUsuario(newUser);
+              },
+              // ignore: prefer_const_constructors
               child: Text(
                 "Establecer texto",
                 style: TextStyle(color: Colors.white),
@@ -25,16 +35,19 @@ class Pagina2Page extends StatelessWidget {
             MaterialButton(
               color: Colors.blue,
               onPressed: () {},
+              // ignore: prefer_const_constructors
               child: Text(
                 "Cambiar edad",
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
             ),
             MaterialButton(
               color: Colors.blue,
               onPressed: () {},
+              // ignore: prefer_const_constructors
               child: Text(
                 "Agregar una profesion",
+                // ignore: prefer_const_constructors
                 style: TextStyle(color: Colors.white),
               ),
             )
