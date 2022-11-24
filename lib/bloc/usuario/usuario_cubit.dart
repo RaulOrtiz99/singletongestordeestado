@@ -22,4 +22,16 @@ class UsuarioCubit extends Cubit<UsuarioState> {
       emit(UsuarioActivo(newUser));
     }
   }
+
+  void agregarProfesion() {
+    final currenState = state;
+    if (currenState is UsuarioActivo) {
+      final newProfesiones = [
+        ...currenState.usuario.profesiones,
+        'Profesiones ${currenState.usuario.profesiones.length + 2} '
+      ];
+      final newUser = currenState.usuario.copyWith(profesiones: newProfesiones);
+      emit(UsuarioActivo(newUser));
+    }
+  }
 }
