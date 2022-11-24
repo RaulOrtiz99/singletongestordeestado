@@ -8,6 +8,7 @@ class Pagina2Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final usuarioCubit = context.read<UsuarioCubit>();
     return Scaffold(
       appBar: AppBar(
         title: Text("Pagina2"),
@@ -24,7 +25,8 @@ class Pagina2Page extends StatelessWidget {
                     nombre: 'Raul',
                     edad: 23,
                     profesiones: ['Profesion1,profesion2']);
-                context.read<UsuarioCubit>().seleccionarUsuario(newUser);
+                // context.read<UsuarioCubit>().seleccionarUsuario(newUser);
+                usuarioCubit.seleccionarUsuario(newUser);
               },
               // ignore: prefer_const_constructors
               child: Text(
@@ -34,7 +36,9 @@ class Pagina2Page extends StatelessWidget {
             ),
             MaterialButton(
               color: Colors.blue,
-              onPressed: () {},
+              onPressed: () {
+                usuarioCubit.cambiarEdad(30);
+              },
               // ignore: prefer_const_constructors
               child: Text(
                 "Cambiar edad",
