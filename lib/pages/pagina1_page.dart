@@ -41,26 +41,26 @@ class InformacionUsuario extends StatelessWidget {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      padding: EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(20.0),
       child: Column(
         children: [
-          Text("General",
+          const Text("General",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          Divider(),
+          const Divider(),
           ListTile(
             title: Text("Nombre:${user.nombre}"),
           ),
           ListTile(
             title: Text("Edad: ${user.edad}"),
           ),
-          Text(
+          const Text(
             "Profesiones",
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),
-          Divider(),
+          const Divider(),
 
           ...user.profesiones
               .map((prof) => ListTile(

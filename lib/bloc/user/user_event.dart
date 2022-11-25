@@ -10,3 +10,9 @@ class ActivateUser extends UserEvent {
 
   ActivateUser(this.user);
 }
+
+class ChangeUserAge extends UserEvent {
+  final int age;
+
+  ChangeUserAge(this.age);
+}
