@@ -1,7 +1,8 @@
 import 'package:estados_s/bloc/user/user_bloc.dart';
-import 'package:estados_s/models/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../models/usuario.dart';
 
 class Pagina2Page extends StatelessWidget {
   const Pagina2Page({super.key});

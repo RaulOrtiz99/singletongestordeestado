@@ -1,6 +1,9 @@
 import 'package:estados_s/bloc/user/user_bloc.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../models/usuario.dart';
 
 class Pagina1Page extends StatelessWidget {
   const Pagina1Page({super.key});
@@ -12,7 +15,7 @@ class Pagina1Page extends StatelessWidget {
       body: BlocBuilder<UserBloc, UserState>(
         builder: (_, state) {
           return state.existUser
-              ? const InformacionUsuario()
+              ? InformacionUsuario(user: state.user!)
               : const Center(child: Text("No hay usuario seleccionado"));
 
           return Container();
@@ -30,26 +33,25 @@ class Pagina1Page extends StatelessWidget {
 }
 
 class InformacionUsuario extends StatelessWidget {
-  const InformacionUsuario({
-    Key? key,
-  }) : super(key: key);
+  final User user;
 
-  @override
+  const InformacionUsuario({super.key, required this.user});
+
   Widget build(BuildContext context) {
     return Container(
       height: double.infinity,
       width: double.infinity,
       padding: EdgeInsets.all(20.0),
       child: Column(
-        children: const [
+        children: [
           Text("General",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           Divider(),
           ListTile(
-            title: Text("Nombre:"),
+            title: Text("Nombre:${user.nombre}"),
           ),
           ListTile(
-            title: Text("Edad:"),
+            title: Text("Edad: ${user.edad}"),
           ),
           Text(
             "Profesiones",
@@ -59,15 +61,21 @@ class InformacionUsuario extends StatelessWidget {
             ),
           ),
           Divider(),
-          ListTile(
-            title: Text("Profesion1:"),
-          ),
-          ListTile(
-            title: Text("Profesion2:"),
-          ),
-          ListTile(
-            title: Text("Profesion3:"),
-          ),
+
+          ...user.profesiones
+              .map((prof) => ListTile(
+                    title: Text(prof),
+                  ))
+              .toList(),
+          // ListTile(
+          //   title: Text("Profesion1:"),
+          // ),
+          // ListTile(
+          //   title: Text("Profesion2:"),
+          // ),
+          // ListTile(
+          //   title: Text("Profesion3:"),
+          // ),
         ],
       ),
     );

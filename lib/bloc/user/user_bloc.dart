@@ -2,7 +2,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-import '../../models/user.dart';
+import '../../models/usuario.dart';
 part 'user_event.dart';
 part 'user_state.dart';
 
