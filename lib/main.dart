@@ -12,13 +12,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      initialRoute: 'pagina1',
-      routes:{
-        'pagina1':  (_)=> Pagina1Page(),
-        'pagina2':  (_)=> Pagina2Page()
-      }
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        initialRoute: 'pagina1',
+        routes: {
+          'pagina1': (_) => Pagina1Page(),
+          'pagina2': (_) => Pagina2Page()
+        });
   }
 }

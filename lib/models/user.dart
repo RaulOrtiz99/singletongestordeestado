@@ -1,9 +1,9 @@
-class Usuario {
+class User {
   String nombre;
   int edad;
   List<String> profesiones;
 
   //Constructor por defecto
-  Usuario(
+  User(
       {required this.nombre, required this.edad, required this.profesiones});
 }
